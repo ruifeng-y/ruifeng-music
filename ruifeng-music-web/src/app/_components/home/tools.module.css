@@ -1,0 +1,12 @@
+.tools {
+    /**
+    tw-flex: 将元素设为 flex 布局。
+    tw-justify-between: 在 flex 布局中，让子元素在主轴方向上两端对齐，中间留出空间。
+    tw-my-5: 设置上下外边距为 1.25rem（20px）。
+    tw-mx-3: 设置左右外边距为 0.75rem（12px）。
+    tw-w-full: 设置宽度为 100%。
+    tw-max-h-12: 设置最大高度为 3rem（48px）。
+    这些样式常见于需要进行布局调整的场景，例如工具栏、按钮组等。
+    */
+    @apply tw-flex tw-justify-between tw-my-5 tw-mx-3 tw-w-full tw-max-h-12;
+}

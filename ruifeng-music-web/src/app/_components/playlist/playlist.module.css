@@ -1,0 +1,68 @@
+
+/**
+* container: 容器类，用于设置容器的样式。
+* mx-auto: 水平居中。
+* px-4: 设置左右内边距为4个单位。
+* py-8: 设置上下内边距为8个单位。
+*/
+.divBox {
+    @apply 
+    tw-container 
+    tw-mx-auto 
+    /* tw-px-1 */
+    tw-py-8
+    tw-border-2 tw-border-red-500
+}
+
+/**
+ * grid: 设置为网格布局。
+ * gap-4: 设置网格项之间的间距为4个单位。
+ * grid-cols-2: 在手机屏幕上，显示两列。
+ * sm:grid-cols-2: 在小型设备（如平板）上，显示两列。
+ * md:grid-cols-3: 在中型设备（如笔记本电脑）上，显示三列。
+ * lg:grid-cols-5: 在大型设备（如桌面显示器）上，显示五列。
+ * xl:grid-cols-5: 在超大型设备（如大屏幕显示器）上，显示五列。
+ *
+*/
+.ul {
+    @apply 
+    tw-grid tw-grid-cols-2 sm:tw-grid-cols-2 md:tw-grid-cols-3 lg:tw-grid-cols-4 xl:tw-grid-cols-5 tw-gap-4
+    
+}
+
+/**
+ * tw-relative: 设置相对定位，允许子元素相对于该元素进行定位。
+ * w-full: 容器宽度为100%，并自动填充父容器的空间。
+ * aspect-square: 设置容器的高度和宽度相等，形成一个正方形。
+*/
+.li {
+    @apply 
+    tw-w-full tw-flex tw-flex-col tw-items-center
+    
+}
+
+.imgBox{
+    @apply
+    tw-relative tw-w-full tw-aspect-square tw-overflow-hidden 
+}
+
+.imgBox.img{
+    @apply tw-transition-transform tw-duration-300 group-hover:tw-scale-110
+}
+
+.imgName{
+    @apply tw-mt-2 tw-text-center tw-text-lg tw-font-semibold
+}
+
+.imgBox.playBox{
+    @apply tw-absolute tw-inset-0 tw-flex tw-justify-center tw-items-center tw-opacity-0 group-hover:tw-opacity-100 tw-transition-opacity tw-duration-300
+}
+
+.playIconBox{
+    @apply tw-bg-black tw-bg-opacity-50 tw-p-4 tw-rounded-full
+}
+
+.playIcon{
+    @apply tw-text-white tw-text-3xl
+}
+

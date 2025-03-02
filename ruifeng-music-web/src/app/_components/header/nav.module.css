@@ -1,0 +1,44 @@
+.nav {
+    @apply tw-flex tw-flex-auto tw-items-center tw-ml-10;
+}
+
+.nav > .menus {
+    @apply tw-hidden md:tw-flex md:tw-flex-auto md:tw-max-w-full md:!tw-justify-start;
+}
+
+.nav > .menus .menu-item > a {
+    @apply tw-bg-transparent hover:tw-bg-transparent tw-duration-200 tw-inline-flex tw-py-0 tw-text-base;
+
+    &:hover {
+        @apply tw-font-bold;
+    }
+}
+
+/**
+* 这个规则会选中 .nav 元素下的 .menus 元素中，.menu-item 类的第一个子项，并应用以下样式：
+* tw-pl-0: 这个类是 Tailwind CSS 的内边距工具类，pl 代表 左内边距（padding-left），0 表示没有左内边距，等同于 padding-left: 0;。
+* 这意味着，第一个 .menu-item 中的 <a> 标签将不具有任何左边距。
+*/
+.nav > .menus .menu-item:first-child > a {
+    @apply tw-pl-0;
+}
+
+/**
+* 这个规则会选中 .nav 元素下的 .menus 元素中，具有 .menu-item-scrolled 类的 .menu-item 中的 <a> 标签，并应用以下样式：
+/ tw-text-gray-700: 这个类会将文本颜色设置为 #4A4A4A，这是 Tailwind 中的一种深灰色。
+/ hover:tw-text-gray-900: 这个类表示当用户将鼠标悬停在链接上时，文本颜色将变为 #1A1A1A，这是一种更深的灰色。
+/ 综上，当 .menu-item-scrolled 被应用时，链接的默认颜色为深灰色，而当用户将鼠标悬停在链接上时，颜色会变为更深的灰色。
+*/
+.nav > .menus .menu-item-scrolled > a {
+    @apply tw-text-gray-700 hover:tw-text-gray-900;
+}
+
+/**
+* 这个规则会选中 .nav 元素下的 .menus 元素中，具有 .menu-item-unscrolled 类的 .menu-item 中的 <a> 标签，并应用以下样式：
+* tw-text-gray-100/80: 这个类表示文本颜色为 gray-100，并带有 80% 的透明度（/80 表示透明度）。gray-100 是一种非常浅的灰色。
+* hover:tw-text-white: 这个类表示当用户将鼠标悬停在链接上时，文本颜色变为白色。
+* 因此，当 .menu-item-unscrolled 被应用时，链接的默认颜色是浅灰色（具有透明度），而当鼠标悬停时，它的颜色会变成白色。
+*/
+.nav > .menus .menu-item-unscrolled > a {
+    @apply tw-text-gray-100/80 hover:tw-text-white;
+}

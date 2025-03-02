@@ -1,0 +1,20 @@
+/* 
+modalWrapper 是一个全宽全高的容器，且在 Flexbox 布局中它的大小会根据可用空间自动伸缩。
+tw-w-full: 设置元素的宽度为 100%，即占满父容器的宽度。
+tw-h-full: 设置元素的高度为 100%，即占满父容器的高度。
+tw-flex-auto: 在 Flexbox 布局中，设置元素的增长因子为自动，意味着它会根据可用空间自动伸缩。
+*/
+.modalWrapper {
+    @apply tw-w-full tw-h-full tw-flex-auto;
+}
+
+/* 
+.modalContent 是一个宽度为 100%、最大高度为视口高度的 80% 的容器，并且如果内容溢出，会出现垂直滚动条。它的左右有 0.75rem（12px）的内边距。
+tw-overflow-y-auto: 使元素的垂直方向（Y轴）内容溢出时显示滚动条。即，当 .modalContent 内容超过容器的高度时，会自动出现垂直滚动条。
+tw-max-h-[80vh]: 设置元素的最大高度为 80vh，即 80% 的视口高度（viewport height）。这意味着 .modalContent 的最大高度不会超过屏幕的 80%。
+tw-w-full: 设置元素的宽度为 100%，占满父容器的宽度。
+tw-px-3: 设置元素的左右内边距（padding）为 0.75rem（通常是 12px）。px 代表左右方向的内边距。
+*/
+.modalContent {
+    @apply tw-overflow-y-auto tw-max-h-[80vh] tw-w-full tw-px-3;
+}

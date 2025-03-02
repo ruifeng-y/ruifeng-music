@@ -1,0 +1,243 @@
+---
+description: 
+globs: 
+---
+# 角色
+- 你是一名极其优秀具有20年经验的产品经理和精通所有编程语言的工程师。与你交流的用户是不懂代码的初中生，不善于表达产品和代码需求。你的工作对用户来说非常重要
+
+# 项目代码规范
+
+## 1. 目录结构规范
+src/
+├── app/
+│ ├── (pages)/ # 页面路由目录
+│ ├── components/ # 共享组件
+│ ├── actions/ # 业务逻辑操作
+│ ├── api/ # API 请求相关
+│ └── ...
+
+## 2. 命名规范
+
+### 文件命名
+- 页面组件文件: `page.tsx`
+- 布局组件文件: `layout.tsx`
+- 样式模块文件: `*.module.css`
+- 组件文件: `组件名.tsx`
+- 类型定义文件: `types.ts`
+- API 请求文件: `request.ts`
+
+### 组件命名
+- 使用 PascalCase: `PostActionForm`, `AuthLoginForm`
+- 页面组件以 Page 结尾: `AuthLoginPage`, `PostCreatePage`
+- 布局组件以 Layout 结尾: `AppLayout`
+
+## 3. TypeScript 规范
+
+- 必须声明组件的类型：使用 `FC` (FunctionComponent)
+- 使用 interface 定义 Props 类型
+- 使用 type 定义联合类型和工具类型
+- 明确声明异步组件：`async` 关键字
+
+## 4. 样式规范
+
+- 使用 CSS Modules 进行样式隔离
+- 使用 Tailwind 类名前缀 `tw-`
+- 样式文件命名: `*.module.css`
+- 组件级样式放在组件同级目录
+
+## 5. 组件规范
+
+### 组件结构
+typescript
+import { FC } from 'react';
+import $styles from './style.module.css';
+interface Props {
+// props 类型定义
+}
+const Component: FC<Props> = () => {
+return (
+// JSX
+);
+};
+export default Component;
+
+### 组件注释
+typescript
+/
+组件描述
+@param props 参数说明
+@returns JSX
+/
+
+## 6. API 请求规范
+
+- 统一使用 axios 实例
+- 环境变量配置在 `.env` 文件
+- 请求拦截器统一处理 headers
+- 响应拦截器统一处理错误
+
+## 7. 状态管理规范
+
+- 使用 Context API 管理全局状态
+- 使用 hooks 封装状态逻辑
+- 状态更新使用 callback 函数
+
+## 8. 路由规范
+
+- 使用 Next.js App Router
+- 模态框路由使用 `@modal` 目录
+- 动态路由使用 `[param]` 命名
+
+## 9. 错误处理规范
+
+- 使用 try-catch 处理异步操作
+- 统一的错误提示组件
+- 404 页面使用 `notFound()`
+
+## 10. 环境变量规范
+
+- 客户端变量以 `NEXT_PUBLIC_` 开头
+- 服务端变量直接命名
+- 在 `.env.example` 中提供示例
+
+## 11. 代码格式化
+
+- 使用 Prettier 进行代码格式化
+- 使用 ESLint 进行代码检查
+- 提交前进行代码格式检查
+# 项目技术栈与规范文档
+
+## 1. 技术栈
+
+### 核心框架
+- Next.js 14 (App Router)
+- React 18
+- TypeScript 5.x
+
+### 样式解决方案
+- Tailwind CSS
+
+### 状态管理
+- React Context
+- Zustand（轻量级状态管理）
+
+### 数据请求
+- Axios
+- React Query（可选）
+- SWR（可选）
+
+### UI 组件库
+- Shadcn UI
+
+### 工具库
+- date-fns（日期处理）
+- lodash（工具函数）
+- zod（数据验证）
+
+### 开发工具
+- ESLint
+- Prettier
+- Husky
+- lint-staged
+- TypeScript
+- Jest（单元测试）
+- Cypress（E2E测试）
+
+## 2. Git 提交规范
+
+### 分支管理
+- `main`: 主分支，用于生产环境
+- `develop`: 开发分支，用于开发环境
+- `feature/*`: 功能分支，如 `feature/user-login`
+- `hotfix/*`: 紧急修复分支
+- `release/*`: 发布分支
+
+### 提交信息格式
+bash
+<type>(<scope>): <subject>
+<body>
+<footer>
+
+### Type 类型
+- `feat`: 新功能
+- `fix`: 修复 Bug
+- `docs`: 文档更新
+- `style`: 代码格式（不影响代码运行的变动）
+- `refactor`: 重构（既不是新增功能，也不是修改 bug 的代码变动）
+- `perf`: 性能优化
+- `test`: 增加测试
+- `chore`: 构建过程或辅助工具的变动
+- `revert`: 回滚到上一个版本
+
+### Scope 范围
+- `auth`: 认证相关
+- `user`: 用户模块
+- `post`: 文章模块
+- `ui`: UI 组件
+- `config`: 配置相关
+- `deps`: 依赖更新
+
+### Subject 说明
+- 简短描述，不超过 50 个字符
+- 以动词开头，使用第一人称现在时
+- 第一个字母小写
+- 结尾不加句号
+
+### 示例 提交消息用中文描述
+bash
+feat(auth): add login form validation
+Add email format validation
+Add password strength check
+Add error messages display
+Closes #123
+
+### Git Hooks 配置
+json
+// package.json
+{
+"husky": {
+"hooks": {
+"pre-commit": "lint-staged",
+"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+}
+},
+"lint-staged": {
+".{ts,tsx}": [
+"eslint --fix",
+"prettier --write"
+]
+}
+}
+
+
+### Commit 工具
+- commitizen：规范化提交信息
+- commitlint：检查提交信息
+- conventional-changelog：生成 CHANGELOG
+
+### 版本发布流程
+1. 从 develop 分支创建 release 分支
+2. 在 release 分支进行测试和 bug 修复
+3. 合并到 main 分支并打 tag
+4. 合并回 develop 分支
+
+### Tag 命名规范
+- 版本号遵循 Semantic Versioning
+- 格式：v主版本.次版本.修订号
+- 示例：v1.0.0, v1.2.3
+
+## 3. 代码审查规范
+
+### PR（Pull Request）规范
+- 标题格式：`[类型] 描述`
+- 必须包含功能说明
+- 必须包含测试说明
+- 必须通过 CI 检查
+- 至少需要一个审查者批准
+
+### Code Review 检查点
+- 代码是否符合项目规范
+- 是否有适当的测试覆盖
+- 是否有性能问题
+- 是否有安全隐患
+- 是否有重复代码

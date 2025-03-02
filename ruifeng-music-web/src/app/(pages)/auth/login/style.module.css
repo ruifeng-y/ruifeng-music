@@ -1,0 +1,3 @@
+.item {
+    @apply tw-flex tw-flex-col tw-space-y-6  tw-bg-white/90 tw-w-auto !tw-max-w-full tw-px-5 tw-py-3 tw-rounded-md tw-shadow-md tw-mt-28;
+}

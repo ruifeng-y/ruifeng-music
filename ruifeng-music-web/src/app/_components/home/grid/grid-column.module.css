@@ -1,0 +1,114 @@
+
+.song_list_img{
+    @apply tw-p-4 md:tw-p-8 lg:tw-p-12
+}
+.song_list_name{
+    @apply tw-line-clamp-2 tw-overflow-hidden tw-text-ellipsis tw-mb-2.5 tw-text-lg tw-bg-white;
+}
+
+.imageWrapper {
+    /* 使容器的高度等于宽度 */
+    padding-top: 100%; 
+    position: relative;
+    width: 100%;
+}
+
+.play_list {
+padding: 0 1rem;
+
+    .play_title {
+        height: 60px;
+        line-height: 60px;
+        font-size: 28px;
+        font-weight: 500;
+        text-align: center;
+        color: $color-black;
+        box-sizing: border-box;
+    }
+
+    .play_body {
+        @include layout(flex-start, stretch, row, wrap);
+    }
+}
+
+.card_frame {
+    .card {
+      position: relative;
+      height: 0;
+      padding-bottom: 100%;
+      overflow: hidden;
+      border-radius: 5px;
+  
+      .card_img {
+        width: 100%;
+        transition: all 0.4s ease;
+      }
+    }
+  
+    .card_name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      margin: 0.5rem 0;
+    }
+  
+    &:hover .card_img {
+      transform: scale(1.2);
+    }
+  }
+
+  .mask {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: rgba(52, 47, 41, 0.4);
+    @include layout(center, center);
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+  
+    .mask_icon {
+      @include icon(2em, rgba(240, 240, 240, 1));
+    }
+  
+    &:hover {
+      opacity: 1;
+      cursor: pointer;
+    }
+  }
+
+  .d1{
+    @apply tw-w-full tw-max-w-sm tw-mx-auto
+  }
+
+  .d2{
+    @apply tw-relative tw-pb-[100%]
+  }
+
+  .d3{
+    @apply tw-absolute tw-inset-0 tw-w-full tw-h-full tw-object-cover
+  }
+
+  .ul{
+    @apply tw-flex tw-w-full tw-h-full
+ 
+  }
+
+  .ss{
+     /* 宽度和高度分别为 100%  */
+    @apply tw-w-full tw-h-full
+
+  }
+
+  .title{
+    @apply tw-w-full 
+    tw-h-full 
+    tw-flex tw-justify-center tw-items-center 
+    tw-border-2 tw-border-red-500
+    tw-my-2
+    /* tw-h-screen */
+  }

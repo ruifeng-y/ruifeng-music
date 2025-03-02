@@ -1,0 +1,41 @@
+.user {
+    @apply tw-flex tw-gap-4 tw-justify-end tw-items-center;
+}
+
+.user .avatar {
+    @apply tw-w-10 tw-h-10 tw-block tw-rounded-full tw-p-1 tw-bg-white tw-cursor-pointer tw-duration-200 tw-transition-shadow;
+
+    & img {
+        @apply tw-transition-transform tw-duration-200;
+
+        &:hover {
+            transform: rotate(360deg);
+        }
+    }
+
+    &:hover {
+        @apply tw-shadow-amber-400  tw-shadow-nylg;
+    }
+}
+
+.user > .authBtns {
+    @apply tw-flex tw-gap-4;
+}
+
+.user > .authBtns > .authBtn {
+    @apply tw-flex tw-items-center tw-justify-center tw-px-4 tw-py-2 
+            tw-rounded-full tw-text-sm tw-font-medium tw-transition-all tw-duration-300 tw-border tw-border-transparent
+            hover:tw-shadow-lg hover:tw-scale-105 active:tw-scale-95;
+}
+
+.loginBtnScrolled {
+    @apply tw-bg-black tw-text-white;
+}
+
+.loginBtnUnscrolled {
+    @apply tw-bg-gray-500/40 tw-backdrop-blur-sm  tw-text-white hover:tw-bg-gray-800/70;
+}
+
+.registerBtnUnscrolled {
+    @apply tw-bg-white/50 tw-backdrop-blur-sm tw-text-black hover:tw-bg-white/80;
+}

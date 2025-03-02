@@ -1,0 +1,5 @@
+body {
+    /* 设置全局背景图片 */
+    @apply tw-bg-[url(images/bg.png)] 
+    tw-bg-fixed tw-bg-cover tw-bg-no-repeat tw-bg-center;
+}

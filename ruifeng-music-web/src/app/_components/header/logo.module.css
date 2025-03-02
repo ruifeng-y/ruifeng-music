@@ -1,0 +1,58 @@
+/**
+效果：
+宽高为 80px 的圆形元素，背景为白色，带有轻微的阴影。
+当鼠标悬停时，元素会放大到原来的 1.2 倍，并且旋转 360 度，阴影颜色变为琥珀色。
+.link 内的 img 元素会变为圆形。
+此外，元素会应用一个名为 breathe-light 的动画，可能是一个渐变或呼吸效果，使元素在时间上有渐变变化。
+这段代码通常用于设计一个带有交互效果的图像链接或头像元素，能在用户悬停时增加动态效果，从而提升视觉体验。
+*/
+.link {
+    /**
+    tw-w-20 tw-h-20:设置 宽度 (w-20) 和 高度 (h-20) 为 5rem 或 80px（tw-w-20 和 tw-h-20 是 Tailwind CSS 中的间距单位）。
+    tw-block:将该元素设置为 块级元素，即使它具有 display: block 样式。
+    tw-rounded-full:使元素 完全圆形，即设置 border-radius: 50%。
+    tw-shadow-nymd:应用一个预定义的阴影样式，nymd 可能是自定义的 Tailwind 样式。它可能代表某种阴影效果。
+    tw-p-1:设置内边距为 0.25rem（tw-p-1，相当于 4px）。
+    tw-bg-white:设置背景颜色为 白色。
+    transition-duration: 300ms:为该元素设置一个过渡效果，持续时间为 300 毫秒。这个过渡效果通常用于元素的状态变化（例如 hover 或其他变换）。
+    animation: breathe-light 4s ease-in-out infinite:为元素添加动画效果，名称为 breathe-light。这个动画会持续 4 秒钟，使用 ease-in-out 缓动函数，且无限循环。
+    */
+    @apply tw-w-20 tw-h-20 tw-block  tw-rounded-full  tw-shadow-nymd tw-p-1 tw-bg-white;
+    transition-duration: 300ms;
+    animation: breathe-light 4s ease-in-out infinite;
+
+    &:hover {
+        /**
+        @apply tw-shadow-nylg tw-shadow-amber-400:这行代码应用了两个阴影样式，nylg 可能是一个自定义阴影类，而 tw-shadow-amber-400 设置了一个 琥珀色（Amber）阴影。
+        transform: scale(1.2) rotate(360deg);:
+        当元素被悬停时，使用 transform 属性进行变换：scale(1.2)：将元素放大 1.2 倍。rotate(360deg)：使元素旋转 360 度，即完成一次完整的旋转。
+        */
+        @apply tw-shadow-nylg tw-shadow-amber-400;
+        transform: scale(1.2) rotate(360deg);
+    }
+
+    /**
+    这部分用于对 .link 内部的 img 元素进行样式应用。
+    @apply tw-rounded-full:
+    为 img 元素添加 圆形边框，使其看起来也是圆形（前提是 img 的宽高比例是相同的）。
+    */
+    & > img {
+        @apply tw-rounded-full;
+    }
+}
+
+.logo {
+    @apply tw-flex tw-flex-none tw-items-center;
+}
+
+.logo > a {
+    @apply tw-flex tw-items-center tw-gap-2  tw-text-xl tw-font-bold tw-bg-gradient-to-r tw-bg-clip-text tw-text-transparent;
+}
+
+.logo-scrolled > a {
+    @apply tw-from-gray-700 tw-to-black/80;
+}
+
+.logo-unscrolled > a {
+    @apply tw-from-slate-200/80 tw-to-slate-100/90;
+}

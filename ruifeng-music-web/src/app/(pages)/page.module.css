@@ -1,0 +1,140 @@
+.list {
+    /* tw-w-full：设置 .list 元素的宽度为 100%。 */
+    @apply tw-w-full;
+
+    & .item {
+        /*  
+        .item 样式（每一篇文章的项）
+        tw-rounded-md：设置圆角，使用中等大小的圆角。
+        tw-mb-8：设置底部外边距为 2rem（大约 32px）。
+        tw-flex：设置为 Flexbox 布局。
+        tw-flex-col：设置 Flexbox 子元素的排列方向为垂直（列）。
+        tw-duration-300：设置动画的持续时间为 300ms。
+        tw-backdrop-blur-md：添加背景模糊效果，模糊度为中等强度。
+        tw-drop-shadow-[5px_5px_5px_rgba(0,0,0,0.35)]：为元素添加自定义阴影，阴影偏移 5px，模糊半径为 5px，颜色为半透明的黑色（rgba(0,0,0,0.35)）。
+         */
+        @apply tw-rounded-md tw-mb-8 tw-flex tw-flex-col
+        tw-duration-300 tw-backdrop-blur-md
+        tw-drop-shadow-[5px_5px_5px_rgba(0,0,0,0.35)];
+
+        /* 
+        .item 的 :last-child 选择器（最后一个 .item 的特殊样式）
+        tw-mb-0：取消最后一个 .item 的底部外边距，避免底部多余的空白。
+        */
+        &:last-child {
+            @apply tw-mb-0;
+        }
+
+        /* 悬停效果：hover
+        &::before：当鼠标悬停在 .item 上时，::before 伪元素的透明度设置为 100%（默认透明度为 0，增加可视效果）。
+        & > .content：当鼠标悬停时，.content 元素的背景颜色变为白色（tw-bg-white）。
+        */
+        &:hover {
+            &::before {
+                @apply tw-opacity-100;
+            }
+
+            & > .content {
+                @apply tw-bg-white;
+            }
+        }
+
+        /* 
+         .item::before 伪元素
+        content: ''：为 ::before 伪元素添加内容（空字符串）。
+        tw-opacity-0：初始化时透明度为 0（不可见）。
+        tw-rounded-md：设置圆角。
+        tw-overflow-hidden：隐藏溢出的部分。
+        tw-duration-300：动画持续时间为 300ms。
+        tw-absolute：设置 ::before 元素为绝对定位。
+        tw-top-0 tw-left-0 tw-w-full tw-h-full：将 ::before 定位到父元素的顶部左侧，宽度和高度为父元素的 100%。
+        tw-bg-[image:var(--bg-img)]：设置背景图像为 CSS 变量 --bg-img 的值。
+        tw-z-[-1]：将 ::before 元素的 z-index 设置为 -1，使它位于内容后面。
+        tw-bg-center tw-bg-cover：设置背景图像居中并覆盖整个元素。
+        filter: blur(30px) opacity(70%) brightness(120%)：对背景进行模糊处理，透明度为 70%，亮度为 120%。
+        */
+        &::before {
+            content: '';
+
+            @apply tw-opacity-0 tw-rounded-md  tw-overflow-hidden tw-duration-300
+            tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-[image:var(--bg-img)]
+            tw-z-[-1] tw-bg-center tw-bg-cover;
+            filter: blur(30px) opacity(70%) brightness(120%);
+        }
+
+        /*  
+        .thumb 样式（封面图片）
+        tw-relative：设置 .thumb 元素为相对定位，以便后代元素（如 img）可以基于此进行定位。
+        tw-w-full：宽度为 100%。
+        tw-h-36 md:tw-h-48 lg:tw-h-72：设置高度为 9rem（144px），在中等屏幕上为 12rem（192px），在大屏幕上为 18rem（288px）。
+        tw-block：设置 .thumb 为块级元素。
+        */
+        & > .thumb {
+            @apply tw-relative tw-w-full tw-h-36 md:tw-h-48 lg:tw-h-72 tw-block;
+        }
+
+        /* 
+        .thumb img 样式（封面图片的样式）
+        tw-rounded-tl-md tw-rounded-tr-md：为图片的左上角和右上角添加圆角。
+        tw-opacity-60：设置图片的透明度为 60%。
+        */
+        & > .thumb img {
+            @apply tw-rounded-tl-md tw-rounded-tr-md tw-opacity-60;
+        }
+
+        /* 
+        .content 样式（文章内容区域） 
+        tw-w-full：宽度为 100%。
+        tw-bg-zinc-100/80：设置背景色为 zinc-100，并且透明度为 80%。
+        tw-rounded-bl-md tw-rounded-br-md：为左下角和右下角添加圆角。
+        tw-px-5：设置左右内边距为 1.25rem（20px）。
+        */
+        & > .content {
+            @apply tw-w-full tw-bg-zinc-100/80 tw-rounded-bl-md tw-rounded-br-md tw-px-5;
+
+            /* 
+            .content .title 和内部元素样式
+            .title：设置上下内边距为 0.75rem（12px）。
+            a：将标题链接设为块级元素，且最大宽度为 100%。
+            h2：设置标题文字为大号字体并加粗。
+            */
+            & > .title {
+                @apply tw-py-3;
+            }
+
+            & > .title > a {
+                @apply tw-max-w-full tw-block tw-overflow-hidden;
+            }
+
+            & > .title > a > h2 {
+                @apply tw-text-lg tw-font-bold;
+            }
+
+            /*
+             .summary 样式（文章摘要）
+             tw-py-3：设置上下内边距为 0.75rem（12px）。
+            */
+            & > .summary {
+                @apply tw-py-3;
+            }
+
+            /*
+            .footer 样式（文章底部）
+            .footer：设置上下内边距为 0.75rem（12px），并使用 Flexbox 布局，左右对齐。
+            .meta：设置为 Flexbox 布局，垂直居中对齐。
+            time：设置时间元素的左边距为 0.5rem（8px）。 
+             */
+            & > .footer {
+                @apply tw-py-3 tw-flex tw-justify-between;
+
+                & > .meta {
+                    @apply tw-flex tw-items-center;
+                }
+
+                & > .meta > time {
+                    @apply tw-ml-2;
+                }
+            }
+        }
+    }
+}

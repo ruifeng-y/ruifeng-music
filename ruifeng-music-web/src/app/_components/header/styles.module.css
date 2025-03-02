@@ -1,0 +1,36 @@
+/* .header { */
+    /**
+    .header 类适用于需要 Flexbox 布局，水平和垂直居中的容器，并且该容器有一些 顶部内边距和最大高度限制，同时在容器内自动填充剩余空间的场景。
+    
+    tw-flex:启用 Flexbox 布局模型。使元素成为一个弹性容器。
+    tw-justify-center:在弹性容器中，水平居中 子元素（沿主轴中心对齐）。这适用于在 flex 布局下的水平排列。
+    tw-items-center:在弹性容器中，垂直居中 子元素（沿交叉轴中心对齐）。这适用于在 flex 布局下的垂直排列。
+    tw-pt-6:为元素的 上边距（padding-top） 设置一个值，6 是 Tailwind CSS 中的一个间距单位，通常对应于 1.5rem 或 24px。
+    tw-max-h-24:设置元素的 最大高度 为 24，通常对应于 6rem 或 96px。
+    tw-flex-auto:使元素的 伸展行为 为自动，即让该元素在弹性容器中占据剩余的空间。它会使该元素根据可用空间扩展，直到它满足最大高度或其他容器限制。
+
+    */
+    /* @apply tw-flex tw-justify-center tw-items-center tw-pt-6 tw-max-h-24 tw-flex-auto; */
+/* } */
+
+.header {
+    @apply tw-fixed tw-top-0 tw-w-full 
+    tw-z-40 
+    /* tw-bg-red-600 */
+    tw-transition-all tw-mt-0;
+    transition: background-color 300ms ease-in-out;
+}
+
+.header-scrolled {
+    @apply tw-border-b tw-border-gray-200/40 tw-shadow-md tw-bg-white/40 tw-backdrop-blur-md;
+}
+
+.header-unscrolled {
+    @apply tw-bg-transparent;
+}
+
+.header > .container {
+    @apply tw-flex tw-h-12 tw-w-full tw-mb-0 tw-justify-between tw-flex-row;
+}
+
+

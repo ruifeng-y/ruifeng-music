@@ -1,0 +1,33 @@
+@layer components {
+    /* 全局布局 */
+    .tw-app-layout {
+        @apply tw-bg-fixed tw-bg-cover tw-bg-no-repeat tw-bg-center tw-min-h-full tw-w-full tw-flex tw-p-0 tw-m-0 tw-flex-col;
+    }
+
+    /* 页面容器 */
+    .tw-page-container {
+        @apply tw-flex tw-flex-auto tw-flex-col tw-mt-8 tw-items-center tw-border-2 tw-border-red-500;
+    }
+
+    /* 
+    页面包装容器 
+    这段代码针对 .tw-page-container 容器中的直接子元素 div，使用了以下 Tailwind 类：
+
+    tw-max-w-[90%]：设置元素的最大宽度为父容器的 90%。这个类确保了子容器宽度不会超过父容器的 90%。
+    md:tw-max-w-[90%]：在 md（即中等屏幕大小）及以上的屏幕上，最大宽度调整为父容器的 90%。
+    lg:tw-max-w-[90%]：在 lg（即大屏幕）及以上的屏幕上，最大宽度调整为父容器的 90%。
+    xl:tw-max-w-[90%]：在 xl（即超大屏幕）及以上的屏幕上，最大宽度调整为父容器的 90%。
+    这些类为子元素设置了响应式的最大宽度，使得在不同屏幕尺寸下，子元素的宽度会自适应调整。
+
+    tw-flex-auto：与 .tw-page-container 中的类似，子元素会自动扩展，填满可用的空间。
+    tw-mb-5：为子元素底部添加一个 1.25rem 的外边距（mb 是 margin-bottom 的缩写），确保子元素与下方的其他内容之间有一定的间距。
+    */
+    .tw-page-container > div {
+        @apply tw-max-w-[90%] md:tw-max-w-[90%] lg:tw-max-w-[90%] xl:tw-max-w-[90%] tw-flex-auto tw-mb-5;
+    }
+
+    /* 空白页样式,一般用于404和error页面 */
+    .tw-page-blank {
+        @apply tw-bg-white/80 tw-h-56 tw-w-full tw-drop-shadow-lg tw-rounded-md tw-flex tw-justify-center tw-items-center;
+    }
+}
