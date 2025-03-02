@@ -26,7 +26,7 @@ import $styles from './page.module.css';
 
 /**
  * 该组件是 HomePage，接收一个名为 searchParams 的 prop，它包含了分页查询的参数。组件的主要任务是根据分页参数请求文章数据并展示在页面上。
- * @param param0 
+ * @param param0
  */
 const HomePage: FC<{ searchParams: IPaginateQueryProps }> = async ({ searchParams }) => {
     // 通过 searchParams 获取分页参数 page 和 limit，如果没有传入 page 或 page 小于 1，则默认设置为第 1 页。
@@ -36,7 +36,7 @@ const HomePage: FC<{ searchParams: IPaginateQueryProps }> = async ({ searchParam
     const page = isNil(currentPage) || Number(currentPage) < 1 ? 1 : Number(currentPage);
     // 使用 queryPostPaginate 函数来获取文章数据。这个函数会根据当前的页数和每页显示的文章数量返回一个包含 items（文章列表）和 meta（分页信息）的对象。
     const { items, meta } = await queryPostPaginate({ page: Number(page), limit });
-    console.log("调用queryPostPaginate");
+    console.log('调用queryPostPaginate');
 
     // 如果当前页数大于总页数，页面会重定向到首页。
     if (meta.totalPages && meta.totalPages > 0 && page > meta.totalPages) {

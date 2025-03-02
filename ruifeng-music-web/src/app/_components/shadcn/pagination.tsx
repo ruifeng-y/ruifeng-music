@@ -20,7 +20,7 @@ import { cn } from '@/libs/utils';
 /**
  * 这是一个包装分页容器的组件，使用了 nav 标签来语义化地标识分页部分，设置了 role="navigation" 和 aria-label="pagination"，以增强可访问性。
  * 使用 cn 函数来处理动态类名（tw-mx-auto tw-flex tw-w-full tw-justify-center），以及接收的 className 属性来定制外部样式。
- * @param param0 
+ * @param param0
  */
 const Pagination = ({ className, ...props }: React.ComponentProps<'nav'>) => (
     <nav
@@ -68,7 +68,7 @@ type PaginationLinkProps = {
  * 用于渲染分页链接，包括页面号码、上一页、下一页等。
  * 它使用 Link 组件（Next.js 提供的）来生成链接，aria-current 用于标识当前页面，aria-disabled 标识禁用状态。
  * buttonVariants 用来设置按钮的变种（例如 ghost 或 outline），并根据 isActive 来决定按钮的样式。
- * @param param0 
+ * @param param0
  */
 const PaginationLink = ({ className, isActive, size = 'icon', ...props }: PaginationLinkProps) => (
     <Link
@@ -91,7 +91,7 @@ PaginationLink.displayName = 'PaginationLink';
 /**
  * 渲染“上一页”按钮，使用了 ChevronLeftIcon 来显示左箭头图标。
  * 提供了自定义的 aria-label 属性来增强可访问性，默认值是 "Go to previous page"。
- * @param param0 
+ * @param param0
  */
 const PaginationPrevious = ({
     className,
@@ -114,7 +114,7 @@ PaginationPrevious.displayName = 'PaginationPrevious';
 /**
  * 渲染“下一页”按钮，使用了 ChevronRightIcon 来显示右箭头图标。
  * 也提供了自定义的 aria-label 属性来增强可访问性，默认值是 "Go to next page"。
- * @param param0 
+ * @param param0
  */
 const PaginationNext = ({
     className,
@@ -137,7 +137,7 @@ PaginationNext.displayName = 'PaginationNext';
 /**
  * 渲染一个表示省略号的按钮，用于分页中间省略的页码（比如 1 ... 5 ... 10）。
  * 使用了 DotsHorizontalIcon 来显示水平省略号图标。
- * @param param0 
+ * @param param0
  */
 const PaginationEllipsis = ({
     className,

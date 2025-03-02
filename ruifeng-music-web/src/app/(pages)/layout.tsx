@@ -8,7 +8,7 @@ const AppLayout: FC<PropsWithChildren<{ modal: ReactNode }>> = ({ children, moda
         <div className="tw-app-layout">
             <Header />
             {children}
-            <PlayerBar/>
+            <PlayerBar />
         </div>
         {modal}
     </>

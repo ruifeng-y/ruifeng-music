@@ -15,12 +15,12 @@ import {
 /**
  * SimplePaginate 是一个接受 totalPages（总页数）和 currentPage（当前页码）作为 props 的分页组件。
  * 如果总页数大于 1，它将显示“上一页”和“下一页”按钮，允许用户在不同的页面之间切换。
- * 
+ *
  * 依赖的钩子
  * usePathname: 获取当前的 URL 路径，不包括查询参数。
  * useRouter: 提供对路由的控制，如跳转到新的页面。
  * useSearchParams: 获取当前 URL 中的查询参数，以便可以基于它们动态调整页面内容。
- * @param param0 
+ * @param param0
  */
 const SimplePaginate: FC<{ totalPages: number; currentPage: number }> = ({
     totalPages,

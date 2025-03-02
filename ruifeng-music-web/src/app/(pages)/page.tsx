@@ -22,13 +22,13 @@ import { PostListPaginate } from '../_components/post/paginate';
 
 // import { CarouselPage } from '@/app/_components/home/carousel';
 import EmblaCarousel from '@/app/_components/home/carousel/js/EmblaCarousel';
-import { EmblaOptionsType } from 'embla-carousel'
+import { EmblaOptionsType } from 'embla-carousel';
 import Header from '@/app/_components/home/carousel/js/Header';
 import Footer from '@/app/_components/home/carousel/js/Footer';
 
-const OPTIONS: EmblaOptionsType = { loop: true }
-const SLIDE_COUNT = 5
-const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
+const OPTIONS: EmblaOptionsType = { loop: true };
+const SLIDE_COUNT = 5;
+const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
 import '@/app/_components/home/carousel/css/base.css';
 import '@/app/_components/home/carousel/css/sandbox.css';
@@ -39,15 +39,15 @@ import { GridColumn } from '@/app/_components/home/grid/grid-column';
 // import { Navigation } from '@/app/_components/navigation-bar/navigation';
 // import { PlayerBar } from '@/app/_components/playerBar/playerBar';
 import { List } from '@/app/_components/playlist/playlist';
-import { SongList } from '@/app/_components/home/songList'
+import { SongList } from '@/app/_components/home/songList';
 
-import { get } from '@/app/api/api'
+import { get } from '@/app/api/api';
 
 import $styles from './page.module.css';
 
 /**
  * 该组件是 HomePage，接收一个名为 searchParams 的 prop，它包含了分页查询的参数。组件的主要任务是根据分页参数请求文章数据并展示在页面上。
- * @param param0 
+ * @param param0
  */
 const HomePage: FC<{ searchParams: IPaginateQueryProps }> = async ({ searchParams }) => {
     // 通过 searchParams 获取分页参数 page 和 limit，如果没有传入 page 或 page 小于 1，则默认设置为第 1 页。
@@ -58,10 +58,10 @@ const HomePage: FC<{ searchParams: IPaginateQueryProps }> = async ({ searchParam
     // 使用 queryPostPaginate 函数来获取文章数据。这个函数会根据当前的页数和每页显示的文章数量返回一个包含 items（文章列表）和 meta（分页信息）的对象。
     const { items, meta } = await queryPostPaginate({ page: Number(page), limit });
     // 查询歌手列表
-    const singerListResponse = await get('api/content/singer/querySingerList')
+    const singerListResponse = await get('api/content/singer/querySingerList');
     const singerList = singerListResponse.data;
     // 查询歌曲列表
-    const songListResponse = await get('api/content/songList/querySongList')
+    const songListResponse = await get('api/content/songList/querySongList');
     const songListData = songListResponse.data;
     // console.log("调用 querySongList",songListData);
     // 如果当前页数大于总页数，页面会重定向到首页。
@@ -77,11 +77,11 @@ const HomePage: FC<{ searchParams: IPaginateQueryProps }> = async ({ searchParam
      */
     return (
         <div className="tw-page-container">
-            <CarouselHome/>
+            <CarouselHome />
             {/* <GridColumn/> */}
             {/* <SongList/> */}
-            <List props={singerList}/>
-            <List props={songListData}/>
+            <List props={singerList} />
+            <List props={songListData} />
             {/* <GridColumn/> */}
             {/* <PlayerBar/> */}
         </div>

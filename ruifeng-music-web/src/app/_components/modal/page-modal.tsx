@@ -22,7 +22,7 @@ import { PageModalProps } from './types';
  * match: 一个包含路径匹配模式的数组，用于判断当前页面的 URL 是否与这些模式匹配。如果匹配，则显示模态框。
  * className: 用来传递给 DialogContent 组件的额外 CSS 类。
  * children: 作为模态框内容的组件或元素。
- * @param param0 
+ * @param param0
  */
 export const PageModal: FC<PageModalProps> = ({ title, match, className, children }) => {
     // usePathname：获取当前页面的路径（例如：/about）。

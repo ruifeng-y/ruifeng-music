@@ -34,17 +34,19 @@ export const PostCreateButton: FC = () => {
     }, [searchParams]);
 
     return (
-        <Button 
-        //  组件的 asChild 属性使得该按钮组件渲染为一个子组件（而不是常规的 button 标签）。
-        // 具体来说，Button 内部渲染了一个 Link 组件，变相将按钮的功能替换为跳转链接。
-        asChild 
-        // tw-justify-end: 使用 Tailwind CSS 类，将按钮内容对齐到右边。
-        // tw-rounded-sm: 设置按钮的圆角样式。
-        // tw-ml-auto: 设置自动左边距，使得按钮向右边对齐（即按钮出现在右侧）。
-        // variant="outline": 设置按钮的样式为轮廓风格（有边框、没有背景色）。
+        <Button
+            //  组件的 asChild 属性使得该按钮组件渲染为一个子组件（而不是常规的 button 标签）。
+            // 具体来说，Button 内部渲染了一个 Link 组件，变相将按钮的功能替换为跳转链接。
+            asChild
+            // tw-justify-end: 使用 Tailwind CSS 类，将按钮内容对齐到右边。
+            // tw-rounded-sm: 设置按钮的圆角样式。
+            // tw-ml-auto: 设置自动左边距，使得按钮向右边对齐（即按钮出现在右侧）。
+            // variant="outline": 设置按钮的样式为轮廓风格（有边框、没有背景色）。
 
-        // Link: 包裹在按钮内的 Link 组件会在点击时导航到 /post-create 页面，并附带当前的查询参数（如分页信息）。
-        className="tw-justify-end tw-rounded-sm tw-ml-auto" variant="outline">
+            // Link: 包裹在按钮内的 Link 组件会在点击时导航到 /post-create 页面，并附带当前的查询参数（如分页信息）。
+            className="tw-justify-end tw-rounded-sm tw-ml-auto"
+            variant="outline"
+        >
             <Link href={`/post-create${getUrlQuery}`}>
                 <IoMdAdd className="tw-mr-2 " />
                 创建

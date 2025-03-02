@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import Image from 'next/image'
+import Image from 'next/image';
 import { FaPlay } from 'react-icons/fa'; // 导入播放图标
 
 import $styles from './playlist.module.css';
@@ -26,19 +26,21 @@ export const List: FC<{ props: SongItem[] }> = (props) => {
                             {/* 图片 */}
                             <Image
                                 // src={`https://img1.baidu.com/it/u=866698258,2027745967&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1067`}
-                                src={process.env.IMAGE_HOST+item.pic}
+                                src={process.env.IMAGE_HOST + item.pic}
                                 // src={`https://n.sinaimg.cn/ent/4_img/upload/1f0ce517/160/w1024h1536/20210413/f3cc-knqqqmv1022303.jpg`}
                                 alt={item.name}
                                 layout="fill"
                                 objectFit="cover"
-                                className={"tw-transition-transform tw-duration-300 group-hover:tw-scale-110"} // 放大效果
+                                className={
+                                    'tw-transition-transform tw-duration-300 group-hover:tw-scale-110'
+                                } // 放大效果
                                 // className={$styles.img} // 放大效果
                             />
                             {/* 鼠标悬浮时显示的播放图标 */}
                             {/* <div className={$styles.playBox}> */}
                             <div className="tw-absolute tw-inset-0 tw-flex tw-justify-center tw-items-center tw-opacity-0 group-hover:tw-opacity-100 tw-transition-opacity tw-duration-300">
                                 <div className={$styles.playIconBox}>
-                                    <FaPlay className={$styles.playIcon}/>
+                                    <FaPlay className={$styles.playIcon} />
                                 </div>
                             </div>
                         </div>
@@ -49,4 +51,4 @@ export const List: FC<{ props: SongItem[] }> = (props) => {
             </ul>
         </div>
     );
-}
+};

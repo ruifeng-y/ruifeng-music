@@ -1,4 +1,4 @@
-.emblaCarousel{
+.emblaCarousel {
     @apply tw-w-full tw-h-full tw-border-2 tw-border-red-500;
 
     /* @apply tw-border-2 tw-border-red-500; */
@@ -15,7 +15,7 @@
     用途：使 .embla 容器居中显示在其父容器内。
     */
     /* @apply tw-max-w-[48rem] tw-mx-auto tw-h-[19rem] tw-border-2 tw-border-red-500 tw-w-full; */
-    @apply tw-max-w-[100%] md:tw-max-w-[100%] lg:tw-max-w-[100%] xl:tw-max-w-[100%] tw-mx-auto tw-flex-auto tw-border-2 tw-border-red-500; 
+    @apply tw-max-w-[100%] md:tw-max-w-[100%] lg:tw-max-w-[100%] xl:tw-max-w-[100%] tw-mx-auto tw-flex-auto tw-border-2 tw-border-red-500;
     /* @apply tw-w-full; */
     /* 
     自定义 CSS 变量
@@ -25,19 +25,19 @@
     --slide-spacing: 1rem;
     --slide-size: 70%;
 }
-    .embla__viewport {
-        @apply tw-overflow-hidden;
-        /* @apply tw-overflow-hidden tw-max-w-[90%] md:tw-max-w-[90%] lg:tw-max-w-[90%] xl:tw-max-w-[90%] tw-flex-auto; */
-    }
+.embla__viewport {
+    @apply tw-overflow-hidden;
+    /* @apply tw-overflow-hidden tw-max-w-[90%] md:tw-max-w-[90%] lg:tw-max-w-[90%] xl:tw-max-w-[90%] tw-flex-auto; */
+}
 
-    .embla__slide {
-        @apply tw-transform tw-flex-none tw-min-w-0 tw-pl-1;
-        /* padding-left: var(--slide-spacing);  */
-        /* 使用自定义变量 */
-        /* 注意：Tailwind 不支持直接应用自定义变量，所以这里需要手动设置 */
-/* 
+.embla__slide {
+    @apply tw-transform tw-flex-none tw-min-w-0 tw-pl-1;
+    /* padding-left: var(--slide-spacing);  */
+    /* 使用自定义变量 */
+    /* 注意：Tailwind 不支持直接应用自定义变量，所以这里需要手动设置 */
+    /* 
         transform: translate3d(0, 0, 0);
         flex: 0 0 var(--slide-size);
         min-width: 0;
         padding-left: var(--slide-spacing); */
-    }
+}

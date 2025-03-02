@@ -1,7 +1,7 @@
 'use client';
 import { FC } from 'react';
 
-import { HeaderLogo } from './logo';;
+import { HeaderLogo } from './logo';
 import { Navbar } from '@/app/_components/header/navigation';
 import { cn } from '@/libs/utils';
 import { useScroll } from '@/libs/broswer';
@@ -9,10 +9,10 @@ import { useScroll } from '@/libs/broswer';
 import { HeaderNav } from './nav';
 import { HeaderUser } from './user';
 
-import $styles from './styles.module.css'
+import $styles from './styles.module.css';
 
 // export const Header: FC = () => {
-//     return (    
+//     return (
 //     <header className={$styles.header}>
 //         {/* <HeaderLogo /> */}
 //         <Navbar/>
@@ -29,7 +29,7 @@ export const Header: FC = () => {
                 [$styles['header-unscrolled']]: !scrolled,
             })}
         >
-        {/* // <header className={$styles.header}> */}
+            {/* // <header className={$styles.header}> */}
             <div
                 className={cn($styles.container, {
                     'tw-mt-4': !scrolled,

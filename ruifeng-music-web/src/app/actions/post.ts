@@ -13,7 +13,9 @@ import { paginate } from '@/database/utils';
  * 查询分页文章列表信息
  * @param options
  */
-export const queryPostPaginate = async (options?: PaginateOptions,): Promise<PaginateReturn<IPost>> => {
+export const queryPostPaginate = async (
+    options?: PaginateOptions,
+): Promise<PaginateReturn<IPost>> => {
     // 此处使用倒序,以便新增的文章可以排在最前面
     const posts = (await readDbFile()).reverse();
     return paginate(posts, { page: 1, limit: 8, ...options });
@@ -35,7 +37,7 @@ export const queryPostTotalPages = async (limit = 8): Promise<number> => {
 export const queryPostItemById = async (id: string): Promise<IPost | null> => {
     // 1. 从数据库文件中读取所有的文章
     const posts = await readDbFile();
-     // 2. 在所有文章中查找与传入的 id 匹配的文章
+    // 2. 在所有文章中查找与传入的 id 匹配的文章
     const item = posts.find((post) => post.id === id);
     // 3. 如果没有找到对应的文章，抛出一个错误
     if (isNil(item)) throw new Error('post not exists!');

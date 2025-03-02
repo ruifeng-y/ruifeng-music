@@ -6,16 +6,15 @@ import { IPaginateQueryProps } from '@/app/_components/paginate/types';
 import { isNil } from 'lodash';
 
 const PlayList: FC<{ searchParams: IPaginateQueryProps }> = async ({ searchParams }) => {
-  const { page: currentPage, limit = 8 } = searchParams;
-  const page = isNil(currentPage) || Number(currentPage) < 1 ? 1 : Number(currentPage);
-  const { items, meta } = await queryPostPaginate({ page: Number(page), limit });
+    const { page: currentPage, limit = 8 } = searchParams;
+    const page = isNil(currentPage) || Number(currentPage) < 1 ? 1 : Number(currentPage);
+    const { items, meta } = await queryPostPaginate({ page: Number(page), limit });
     return (
-      <div>
-        <List/>
-        {meta.totalPages! > 1 && <PostListPaginate limit={8} page={page} />}
-      </div>
+        <div>
+            <List />
+            {meta.totalPages! > 1 && <PostListPaginate limit={8} page={page} />}
+        </div>
     );
-  }
+};
 
-  export default PlayList;
-
+export default PlayList;

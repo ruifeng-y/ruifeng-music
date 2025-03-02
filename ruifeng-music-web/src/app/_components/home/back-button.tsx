@@ -21,7 +21,7 @@ import { Button } from '../shadcn/button';
  * 在用户点击按钮时，如果浏览器历史记录中存在至少一个页面，按钮会触发 router.back()，将用户导航到上一个页面。
  * 如果浏览器历史记录长度小于等于 1（意味着用户无法返回到上一页），按钮会变得禁用，无法点击。
  * 组件使用了 React 的 useState, useEffect 和 useCallback 钩子来管理状态和副作用。
- * 
+ *
  * 这个组件在构建 单页面应用（SPA）时非常有用，可以方便地为用户提供返回上一个页面的功能。
  */
 export const BackButton: FC = () => {
