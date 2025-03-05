@@ -3,3 +3,24 @@ body {
     @apply tw-bg-[url(images/bg.png)] 
     tw-bg-fixed tw-bg-cover tw-bg-no-repeat tw-bg-center;
 }
+
+.tw-global-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 确保布局至少占满整个视口高度 */
+}
+
+.tw-container {
+    flex: 1; /* 使容器占据剩余空间 */
+    max-width: 100%; /* 最大宽度 */
+    height: 100%; /* 确保容器高度为100% */
+    padding: 0; /* 确保没有内边距影响 */
+    margin: 0 auto; /* 居中对齐 */
+}
+
+/* 响应式样式 */
+@media (width <= 768px) {
+    .tw-container {
+        padding: 0.5rem; /* 小屏幕内边距 */
+    }
+}

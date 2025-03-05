@@ -1,45 +1,15 @@
-// clsx：一个用于动态组合类名的工具，可以根据条件添加或移除类名。
-import clsx from 'clsx';
-// lodash：一个实用的工具库，这里使用了 isNil 来检查一个值是否为 null 或 undefined。
+
 import { isNil } from 'lodash';
-// Image 和 Link：来自 Next.js 的组件，Image 用于处理图像优化，Link 用于页面导航。
-import Image from 'next/image';
-import Link from 'next/link';
-// redirect：来自 Next.js，用于在页面加载时进行重定向。
 import { redirect } from 'next/navigation';
 import { FC } from 'react';
-// AiOutlineCalendar：一个来自 react-icons 的图标组件，显示一个日历图标。
-import { AiOutlineCalendar } from 'react-icons/ai';
-// queryPostPaginate：自定义的 API 调用函数，用于获取带有分页数据的文章列表。
 import { queryPostPaginate } from '@/app/actions/post';
-// Tools、PostDelete、PostEditButton、PostListPaginate：自定义的 React 组件，分别用于工具栏、删除按钮、编辑按钮和分页功能。
-import { Tools } from '../_components/home/tools';
-
 import { IPaginateQueryProps } from '../_components/paginate/types';
-import { PostDelete } from '../_components/post/delete';
-import { PostEditButton } from '../_components/post/edit-button';
-import { PostListPaginate } from '../_components/post/paginate';
-
-// import { CarouselPage } from '@/app/_components/home/carousel';
-import EmblaCarousel from '@/app/_components/home/carousel/js/EmblaCarousel';
-import { EmblaOptionsType } from 'embla-carousel';
-import Header from '@/app/_components/home/carousel/js/Header';
-import Footer from '@/app/_components/home/carousel/js/Footer';
-
-const OPTIONS: EmblaOptionsType = { loop: true };
-const SLIDE_COUNT = 5;
-const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
-
 import '@/app/_components/home/carousel/css/base.css';
 import '@/app/_components/home/carousel/css/sandbox.css';
 import '@/app/_components/home/carousel/css/embla.css';
 
 import { CarouselHome } from '@/app/_components/home/carousel/carousel-page';
-import { GridColumn } from '@/app/_components/home/grid/grid-column';
-// import { Navigation } from '@/app/_components/navigation-bar/navigation';
-// import { PlayerBar } from '@/app/_components/playerBar/playerBar';
 import { List } from '@/app/_components/playlist/playlist';
-import { SongList } from '@/app/_components/home/songList';
 
 import { get } from '@/app/api/api';
 
@@ -78,12 +48,8 @@ const HomePage: FC<{ searchParams: IPaginateQueryProps }> = async ({ searchParam
     return (
         <div className="tw-page-container">
             <CarouselHome />
-            {/* <GridColumn/> */}
-            {/* <SongList/> */}
             <List props={singerList} />
             <List props={songListData} />
-            {/* <GridColumn/> */}
-            {/* <PlayerBar/> */}
         </div>
     );
 };

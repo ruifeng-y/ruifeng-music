@@ -17,7 +17,7 @@ import $styles from './carousel-page.module.css';
 
 export const CarouselHome: FC = () => {
     return (
-        <div className={$styles.emblaCarousel}>
+        <div className="tw-w-full tw-h-screen">
             {/* <Header /> */}
             <EmblaCarousel slides={SLIDES} options={OPTIONS} />
             {/* <Footer /> */}

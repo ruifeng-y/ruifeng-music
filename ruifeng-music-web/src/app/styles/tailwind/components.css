@@ -6,7 +6,7 @@
 
     /* 页面容器 */
     .tw-page-container {
-        @apply tw-flex tw-flex-auto tw-flex-col tw-mt-8 tw-items-center tw-border-2 tw-border-red-500;
+        @apply tw-flex tw-flex-auto tw-flex-col tw-mt-8 tw-items-center tw-border-2 tw-border-yellow-500;
     }
 
     /* 
