@@ -1,4 +1,5 @@
 /* .header { */
+
 /**
     .header 类适用于需要 Flexbox 布局，水平和垂直居中的容器，并且该容器有一些 顶部内边距和最大高度限制，同时在容器内自动填充剩余空间的场景。
     
@@ -10,25 +11,50 @@
     tw-flex-auto:使元素的 伸展行为 为自动，即让该元素在弹性容器中占据剩余的空间。它会使该元素根据可用空间扩展，直到它满足最大高度或其他容器限制。
 
     */
+
 /* @apply tw-flex tw-justify-center tw-items-center tw-pt-6 tw-max-h-24 tw-flex-auto; */
+
 /* } */
 
+/* 基础样式 */
 .header {
-    @apply tw-fixed tw-top-0 tw-w-full 
-    tw-z-40 
-    /* tw-bg-red-600 */
-    tw-transition-all tw-mt-0;
+    @apply tw-fixed       /* 固定定位：position: fixed */
+      tw-top-0       /* 顶部对齐：top: 0 */
+      tw-w-full      /* 宽度 100%：width: 100% */
+      tw-z-40        /* 层级控制：z-index: 40 */
+      tw-transition-all /* 过渡属性：transition-property: all */
+      tw-mt-0; /* 上外边距 0：margin-top: 0 */
+
+    /* 自定义过渡效果（覆盖 Tailwind 默认） */
     transition: background-color 300ms ease-in-out;
 }
 
+/* 滚动状态样式 */
 .header-scrolled {
-    @apply tw-border-b tw-border-gray-200/40 tw-shadow-md tw-bg-white/40 tw-backdrop-blur-md;
+    @apply tw-border-b          /* 底部边框：border-bottom-width: 1px */
+      tw-border-gray-200/40 /* 边框颜色：rgba(229, 231, 235, 0.4) */
+      tw-shadow-md         /* 中等阴影：shadow-md */
+      tw-bg-white/40       /* 背景颜色：rgba(255, 255, 255, 0.4) */
+      /* tw-mt-4 */
+      tw-backdrop-blur-md; /* 背景毛玻璃效果：backdrop-filter: blur(12px) */
 }
 
+/* 初始状态样式 */
 .header-unscrolled {
-    @apply tw-bg-transparent;
+    @apply tw-border-b          /* 底部边框：border-bottom-width: 1px */
+      tw-border-gray-200/40 /* 边框颜色：rgba(229, 231, 235, 0.4) */
+      tw-shadow-md         /* 中等阴影：shadow-md */
+      tw-bg-white/40       /* 背景颜色：rgba(255, 255, 255, 0.4) */
+      /* tw-mt-4 */
+      tw-backdrop-blur-md; /* 背景毛玻璃效果：backdrop-filter: blur(12px) */
 }
 
+/* 内部容器 */
 .header > .container {
-    @apply tw-flex tw-h-12 tw-w-full tw-mb-0 tw-justify-between tw-flex-row;
+    @apply tw-flex         /* Flex 容器：display: flex */
+    tw-h-12         /* 高度 48px：height: 3rem */
+    tw-w-full       /* 宽度 100%：width: 100% */
+    tw-mb-0         /* 下外边距 0：margin-bottom: 0 */
+    tw-justify-between /* 子元素两端对齐：justify-content: space-between */
+    tw-flex-row; /* 横向排列：flex-direction: row */
 }

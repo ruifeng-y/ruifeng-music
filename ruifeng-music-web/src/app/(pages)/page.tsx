@@ -47,7 +47,7 @@ const HomePage: FC<{ searchParams: IPaginateQueryProps }> = async ({ searchParam
      */
     return (
         <div className="tw-page-container">
-            <CarouselHome />
+            {/* <CarouselHome /> */}
             <List props={singerList} />
             <List props={songListData} />
         </div>
