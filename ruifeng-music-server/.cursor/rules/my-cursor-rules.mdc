@@ -1,9 +1,195 @@
 ---
-description:
-globs:
+description: 
+globs: 
 ---
+# 项目代码规范
+## 目录结构规范
+src/
+├── modules/          # 功能模块目录
+│   ├── user/         # 用户模块
+│   ├── auth/         # 认证模块
+│   ├── post/         # 文章模块
+│   └── ...           # 其他模块
+├── config/           # 配置文件
+├── database/         # 数据库相关
+├── services/         # 服务层
+├── controllers/      # 控制器
+├── middlewares/      # 中间件
+└── utils/            # 工具函数
+## 命名规范
+文件命名
+- 模块文件: 模块名.module.ts
+- 控制器文件: 模块名.controller.ts
+- 服务文件: 模块名.service.ts
+- 中间件文件: 模块名.middleware.ts
+- 工具函数文件: 工具名.ts
+- 配置文件: config.ts
+变量和函数命名
+- 使用驼峰命名法: userName, getUserInfo
+- 常量使用全大写字母和下划线分隔: MAX_USERS, DEFAULT_TIMEOUT
+## TypeScript 规范
+- 必须声明类型：使用 interface 定义对象类型，使用 type 定义联合类型和工具类型。
+- 使用 enum 定义枚举类型。
+- 明确声明异步函数：使用 async 关键字。
+## 样式规范
+- 使用 CSS Modules 进行样式隔离。
+- 样式文件命名: *.module.css。
+- 组件级样式放在组件同级目录。
+## 组件规范
+### 组件结构
+```
+import { FC } from 'react';
+import styles from './Component.module.css';
 
-# Your rule content
+interface Props {
+  // props 类型定义
+}
 
-- You can @ files here
-- You can use markdown but dont have to
+const Component: FC<Props> = () => {
+  return (
+    // JSX
+  );
+};
+
+export default Component;
+```
+
+### 组件注释
+```
+/**
+ * 组件描述
+ * @param props 参数说明
+ * @returns JSX
+ */
+```
+## API 请求规范
+- 统一使用 Axios 实例。
+- 环境变量配置在 .env 文件。
+- 请求拦截器统一处理 headers。
+- 响应拦截器统一处理错误。
+## 状态管理规范
+- 使用 Redux 或 Context API 管理全局状态。
+- 使用 hooks 封装状态逻辑。
+- 状态更新使用 callback 函数。
+## 路由规范
+- 使用 React Router 进行路由管理。
+- 动态路由使用 :param 命名。
+- 嵌套路由使用 NestedRoute 组件。
+## 错误处理规范
+- 使用 try-catch 处理异步操作。
+- 统一的错误提示组件。
+- 404 页面使用 NotFound 组件。
+## 环境变量规范
+- 客户端变量以 REACT_APP_ 开头。
+- 服务端变量直接命名。
+- 在 .env.example 中提供示例。
+## 代码格式化
+- 使用 Prettier 进行代码格式化。
+- 使用 ESLint 进行代码检查。
+- 提交前进行代码格式检查。
+## 项目技术栈与规范文档
+### 技术栈
+#### 核心框架
+- React 18
+- TypeScript 5.x
+#### 状态管理
+- Redux
+- React Context
+#### 数据请求
+- Axios
+#### UI 组件库
+- Material-UI 或 Ant Design
+#### 工具库
+- date-fns（日期处理）
+- lodash（工具函数）
+- zod（数据验证）
+#### 开发工具
+- ESLint
+- Prettier
+- Husky
+- lint-staged
+- TypeScript
+- Jest（单元测试）
+- Cypress（E2E测试）
+### Git 提交规范
+#### 分支管理
+- main: 主分支，用于生产环境
+- develop: 开发分支，用于开发环境
+- feature/*: 功能分支，如 feature/user-login
+- hotfix/*: 紧急修复分支
+- release/*: 发布分支
+#### 提交信息格式
+- Type 类型
+- feat: 新功能
+- fix: 修复 Bug
+- docs: 文档更新
+- style: 代码格式（不影响代码运行的变动）
+- refactor: 重构（既不是新增功能，也不是修改 bug 的代码变动）
+- perf: 性能优化
+- test: 增加测试
+- chore: 构建过程或辅助工具的变动
+- revert: 回滚到上一个版本
+#### Scope 范围
+- auth: 认证相关
+- user: 用户模块
+- post: 文章模块
+- ui: UI 组件
+- config: 配置相关
+- deps: 依赖更新
+#### Subject 说明
+- 简短描述，不超过 50 个字符
+- 以动词开头，使用第一人称现在时
+- 第一个字母小写
+- 结尾不加句号
+- 示例 提交消息(使用中文)
+feat(auth): add login form validation
+Add email format validation
+Add password strength check
+Add error messages display
+Closes #123
+
+#### Git Hooks 配置
+// package.json
+{
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  }
+}
+
+#### Commit 工具
+- commitizen：规范化提交信息
+- commitlint：检查提交信息
+- conventional-changelog：生成 CHANGELOG
+#### 版本发布流程
+- 从 develop 分支创建 release 分支
+- 在 release 分支进行测试和 bug 修复
+- 合并到 main 分支并打 tag
+- 合并回 develop 分支
+#### Tag 命名规范
+- 版本号遵循 Semantic Versioning
+- 格式：v主版本.次版本.修订号
+- 示例：v1.0.0, v1.2.3
+## 代码审查规范
+### PR（Pull Request）规范
+- 标题格式：[类型] 描述
+- 必须包含功能说明
+- 必须包含测试说明
+- 必须通过 CI 检查
+- 至少需要一个审查者批准
+### Code Review 检查点
+- 代码是否符合项目规范
+- 是否有适当的测试覆盖
+- 是否有性能问题
+- 是否有安全隐患
+- 是否有重复代码
+
+通过遵循这些项目代码规范，您可以确保代码的高质量和可维护性，同时提高团队的协作效率。
